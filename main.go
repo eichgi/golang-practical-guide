@@ -5,6 +5,7 @@ import (
 	"admin/routes"
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/fiber/middleware/cors"
+	"log"
 )
 
 func main() {
@@ -18,5 +19,6 @@ func main() {
 
 	routes.Setup(app)
 
-	app.Listen(":8000")
+	//app.Listen(":8000")
+	log.Fatal(app.Listen("localhost:8000"), nil)
 }
