@@ -20,5 +20,10 @@ func Connect() {
 
 	fmt.Println("Database connected!")
 
-	db.AutoMigrate(&models.User{}, &models.Role{}, &models.Permission{})
+	db.AutoMigrate(
+		&models.User{},
+		&models.Role{},
+		&models.Permission{},
+		&models.Product{},
+	)
 }
