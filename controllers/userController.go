@@ -2,18 +2,27 @@ package controllers
 
 import (
 	"admin/database"
+	"admin/middleware"
 	"admin/models"
 	"github.com/gofiber/fiber"
 	"strconv"
 )
 
 func AllUsers(c *fiber.Ctx) error {
+	if err := middleware.IsAuthorized(c, "users"); err != nil {
+		return err
+	}
+
 	page, _ := strconv.Atoi(c.Query("page", "1"))
 
-	return c.JSON(models.Paginate(database.DB, &models.User{},page))
+	return c.JSON(models.Paginate(database.DB, &models.User{}, page))
 }
 
 func CreateUser(c *fiber.Ctx) error {
+	if err := middleware.IsAuthorized(c, "users"); err != nil {
+		return err
+	}
+
 	var user models.User
 
 	if err := c.BodyParser(&user); err != nil {
