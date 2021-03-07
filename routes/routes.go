@@ -43,5 +43,7 @@ func Setup(app *fiber.App) {
 
 	app.Static("/api/uploads", "./uploads")
 
+	app.Get("/api/orders", controllers.AllOrders)
+
 	app.Get("/other", controllers.Other)
 }
