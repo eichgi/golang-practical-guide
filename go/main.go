@@ -1,8 +1,8 @@
 package main
 
 import (
-	"admin/database"
-	"admin/routes"
+	"admin/go/database"
+	"admin/go/routes"
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/fiber/middleware/cors"
 	"log"

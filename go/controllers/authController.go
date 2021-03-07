@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"admin/database"
-	"admin/models"
-	"admin/util"
+	"admin/go/database"
+	"admin/go/models"
+	"admin/go/util"
 	"github.com/gofiber/fiber"
 	"strconv"
 	"time"

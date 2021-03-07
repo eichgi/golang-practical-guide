@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"admin/database"
-	"admin/models"
-	"admin/util"
+	"admin/go/database"
+	"admin/go/models"
+	"admin/go/util"
 	"errors"
 	"github.com/gofiber/fiber"
 	"strconv"

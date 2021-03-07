@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"admin/util"
+	"admin/go/util"
 	"github.com/gofiber/fiber"
 )
 

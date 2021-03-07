@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"admin/controllers"
-	"admin/middleware"
+	"admin/go/controllers"
+	"admin/go/middleware"
 	"github.com/gofiber/fiber"
 )
 
