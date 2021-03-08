@@ -1,5 +1,7 @@
 import React, {Component, SyntheticEvent} from 'react';
 import './../Login.css';
+import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 class Register extends Component {
 
@@ -8,20 +10,34 @@ class Register extends Component {
     email = '';
     password = '';
     password_confirm = '';
+    state = {
+        registered: false,
+    }
 
-    submit = (e: SyntheticEvent) => {
+    submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        console.log({
+        const data = {
             first_name: this.first_name,
             last_name: this.last_name,
             email: this.email,
             password: this.password,
             password_confirm: this.password_confirm,
+        };
+
+        const response = await axios.post("http://localhost:8000/api/register", data);
+        console.log(response);
+
+        this.setState({
+            registered: true
         });
     };
 
     render() {
+        if (this.state.registered) {
+            return <Redirect to={'/login'}/>;
+        }
+
         return (
             <main className="form-signin">
                 <form onSubmit={this.submit}>
@@ -62,7 +78,6 @@ class Register extends Component {
                     <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
                 </form>
             </main>
-
         );
     }
 }
